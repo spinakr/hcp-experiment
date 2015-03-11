@@ -1,6 +1,43 @@
-<div class="text-center">
-    <span class="glyphicon glyphicon-heart"></span>
-    <h3>Experiment finished!</h3>
+<div class="form-group text-center">
+    <table align="center">
+        <tr>
+            <td> <img ng-src="letters/letter_{{challenges[respons.length][9]}}.png"/></td>
+            <td> <img ng-src="letters/letter_{{challenges[respons.length][10]}}.png"/></td>
+            <td> <img ng-src="letters/letter_{{challenges[respons.length][11]}}.png"/></td>
+            <td> <img ng-src="letters/letter_{{challenges[respons.length][12]}}.png"/></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td colspan="4" rowspan="5">
+                <div id="password-field" >
+                    <div class="form-group">
+                        <input type="text" class="form-control"  ng-model="respons">
+                        {{respons.length}}
+                        <!--    <input type="submit" class="hidden-submit" value="Submit"  /> -->
+                    </div>
+                </div>
+            </td>
+
+            <td>0 <img ng-src="letters/letter_{{challenges[respons.length][0]}}.png"/></td>
+            <td>5 <img ng-src="letters/letter_{{challenges[respons.length][5]}}.png"/></td>
+        </tr>
+        <tr>
+            <td>1<img ng-src="letters/letter_{{challenges[respons.length][1]}}.png"/></td>
+            <td>6<img ng-src="letters/letter_{{challenges[respons.length][6]}}.png"/></td>
+        </tr>
+        <tr>
+            <td>2<img ng-src="letters/letter_{{challenges[respons.length][2]}}.png"/></td>
+            <td>7<img ng-src="letters/letter_{{challenges[respons.length][7]}}.png"/></td>
+        </tr> 
+        <tr>
+            <td>3<img ng-src="letters/letter_{{challenges[respons.length][3]}}.png"/></td>
+            <td>8<img ng-src="letters/letter_{{challenges[respons.length][8]}}.png"/></td>
+        </tr>
+        <tr>
+            <td>4<img ng-src="letters/letter_{{challenges[respons.length][4]}}.png"/></td>
+            <td>9<img ng-src="letters/letter_{{challenges[respons.length][9]}}.png"/></td>
+        </tr>
+    </table>
     
     <button type="submit" class="btn btn-danger">Submit</button>
 

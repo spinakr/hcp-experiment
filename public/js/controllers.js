@@ -14,6 +14,13 @@ angular.module('hcp-experiment.controllers', [])
 })
 .controller('FormController', function($scope,$http){
     $scope.formData = {};
+    $scope.respons = '';
+
+    $scope.challenges = [];
+
+    $scope.challenges = randomChallenge(10);
+
+    console.log("Challenges: %o", $scope.challenges);
     
     $scope.createTest = function() {
     $http.post('/api/tests', $scope.formData)
@@ -29,6 +36,10 @@ angular.module('hcp-experiment.controllers', [])
 
 
 
+
+
+
+
     $scope.processForm = function (){
         alert('processed!');
     }
@@ -36,3 +47,18 @@ angular.module('hcp-experiment.controllers', [])
 .controller('ExperimentController', function($scope){
 
 });
+
+
+function randomChallenge(length){
+    var letters = "abcdefghijklmnopqrstuvwxyz" ;
+    var respons = [];
+    for(j=0; j<length; j++){
+        var ch = [];
+        for (i=0; i<13; i++){
+            ch.push(letters.charAt(Math.floor(Math.random()*26)));
+        }
+        respons.push(ch);
+    }
+    return respons;
+
+}

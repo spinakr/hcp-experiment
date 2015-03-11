@@ -1,13 +1,29 @@
 <div class="form-group">
-    <label for="name">Name</label>
-    <input type="text" class="form-control" name="name" ng-model="formData.name">
+
+    <label for="occupation">Mapping Technique</label>
+    <div class="radio">
+        <label>
+            <input type="radio" ng-model="formData.technique" value="cheatsheet" checked>
+            Cheat sheet
+        </label>
+    </div>
+    <div class="radio">
+        <label>
+            <input type="radio" ng-model="formData.technique" value="memorization">
+            Memorization
+        </label>
+    </div>
 </div>
 
 <div class="form-group">
-    <label for="email">Email</label>
-    <input type="text" class="form-control" name="email" ng-model="formData.occupation">
+    <label for="occupation">Occupation</label>
+    <input type="text" class="form-control" name="occupation" ng-model="formData.occupation">
 </div>
 
+<div class="form-group">
+    <label for="age">Age</label>
+    <input type="text" class="form-control" name="age" ng-model="formData.age">
+</div>
 <div class="form-group row">
 <div class="col-xs-6 col-xs-offset-3">
     <a ui-sref="form.data" class="btn btn-block btn-info">
