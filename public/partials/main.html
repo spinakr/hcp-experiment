@@ -1,9 +1,7 @@
-
-
 <div class="col-xs-6 col-xs-offset-3">
     <p>Current test data: </p>
-    <div ng-repeat="test in tests">
-        {{test.name}}<br />
+    <div ng-repeat="obj in data">
+        {{obj._id}}<br />
     </div>
     <a ui-sref="form.demo" class="btn btn-block btn-info">
     Start exepriment <span class="glyphicon glyphicon-circle-arrow-right"></span>

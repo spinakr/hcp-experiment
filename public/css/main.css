@@ -5,8 +5,7 @@ pre{
 	margin-bottom:20px; 
 }
 
-td{
-    border: 1px solid black;
+.challenges td{
     padding: 10px;
 }
 

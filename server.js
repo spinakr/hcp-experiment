@@ -22,30 +22,34 @@ app.use(methodOverride());
 
 
 
-var Test = mongoose.model('Test',{
-    name : String,
-    occupation: String
+var Data = mongoose.model('data',{
+    age : Number,
+    occupation: String,
+    technique: String,
+    calcTimes: Array
 });
 
 
-app.get("/api/tests", function(req, res){
-    Test.find(function(err, tests){
+app.get("/api/data", function(req, res){
+    Data.find(function(err, data){
         if(err){
             res.send(err)
         }
-        res.json(tests);
+        res.json(data);
     })
 })
 
-app.post("/api/tests", function(req, res){
-    Test.create({
-        name: req.body.name,
-        occupation: req.body.occupation
+app.post("/api/data", function(req, res){
+    Data.create({
+        age: req.body.age,
+        occupation: req.body.occupation,
+        technique: req.body.technique,
+        calcTimes: req.body.data.calcTimes
     }, function(err, test){
         if(err){
             res.send(err);
         }
-        Test.find(function(err, tests){
+        Data.find(function(err, tests){
             if(err){
                 res.send(err);
             }

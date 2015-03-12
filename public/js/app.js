@@ -20,9 +20,13 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
             url: '/profile',
             templateUrl: 'partials/form-profile.html',
         })
-        .state('form.data',{
-            url: '/data',
-            templateUrl: 'partials/form-data.html',
+        .state('form.practice',{
+            url: '/practice',
+            templateUrl: 'partials/form-practice.html',
+        })
+        .state('form.experiment',{
+            url: '/experiment',
+            templateUrl: 'partials/form-experiment.html',
         });
     $stateProvider
         .state('main',{
