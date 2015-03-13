@@ -40,6 +40,7 @@ angular.module('hcp-experiment.controllers', [])
     $scope.challenges = [];
     $rootScope.formData.data = {};
     $rootScope.formData.data.calcTimes = [];
+    $rootScope.formData.data.results = [];
 
     $scope.letters = "abcdefghijklmnopqrstuvwxyz";
 
@@ -56,11 +57,21 @@ angular.module('hcp-experiment.controllers', [])
         $rootScope.formData.data.calcTimes.push((current - $scope.timing)/1000);   
         $scope.timing = current;
 
+        if($scope.respons.substring($scope.respons.length-1)  == $scope.challenges.answer[$scope.respons.length-1] ){
+            $rootScope.formData.data.results.push(1);
+        }else{
+            $rootScope.formData.data.results.push(0);
+        }
+
         if($rootScope.formData.data.calcTimes.length == $scope.challenges.challenges.length){
 
         }
     }
 
+
+    $scope.range = function(n){
+        return new Array(n);
+    }
     $scope.mapping = function mapping(x){
         var letters = "abcdefghijklmnopqrstuvwxyz" ;
         return letters.search(x);
@@ -93,7 +104,6 @@ angular.module('hcp-experiment.controllers', [])
     $scope.mappings = [];
     for(i=0; i<10; i++){
         var rand = Math.floor(Math.random()*letters.length);
-        console.log("Letter: %o", letters[rand]);
         $scope.mappings.push({
             letter: letters[rand],
             digit: Math.floor(Math.random()*10)+1

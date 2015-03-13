@@ -5,8 +5,34 @@ pre{
 	margin-bottom:20px; 
 }
 
+.border-on td {
+    border-width: 1px;
+    border-style: solid;
+}
+
+    
 .challenges td{
+
     padding: 10px;
+}
+.circleblue {
+    display: inline-block;
+    background: black;
+    border-radius: 100%;
+    height: 15px;
+    width: 15px;
+    margin: 1;
+    background: radial-gradient(circle at 6px 6px, #5cabff, #000);
+}
+
+.circlered {
+    display: inline-block;
+    background: black;
+    border-radius: 100%;
+    height: 15px;
+    width: 15px;
+    margin: 1;
+    background: radial-gradient(circle at 6px 6px, #ff0000, #000);
 }
 
 #form-container{
@@ -134,3 +160,5 @@ pre{
 .navbar-brand{
     float: none;
 }
+
+

@@ -8,27 +8,28 @@
             </td>
         </tr>
     </table>
-    <br>
-    <br>
-    <br>
+
+    <hr class="divider"> 
 
     <table align="center" class="challenges">
+
     <tr>
-        <td> <img ng-src="letters/letter_{{challenges.challenges[respons.length][9]}}.png"/></td>
-        <td> <img ng-src="letters/letter_{{challenges.challenges[respons.length][10]}}.png"/></td>
+        <td> <img ng-src="letters/letter_{{challenges.challenges[respons.length][9]}}.png"/>
+                               <img ng-src="letters/letter_{{challenges.challenges[respons.length][10]}}.png"/>
+        </td>
         <td> <img ng-src="letters/letter_{{challenges.challenges[respons.length][11]}}.png"/></td>
         <td> <img ng-src="letters/letter_{{challenges.challenges[respons.length][12]}}.png"/></td>
-        <td></td>
     </tr>
     <tr>
-        <td colspan="4" rowspan="5">
+        <td colspan="4" rowspan="4">
             <div id="password-field" >
                 <div class="form-group">
                     <input type="text" class="form-control" ng-change="newChar()"  ng-model="respons" maxlength="{{challenges.challenges.length}}" ng-keydown="preventBackspace($event)">
-                    {{respons.length}}
                     <!--    <input type="submit" class="hidden-submit" value="Submit"  /> -->
                 </div>
             </div>
+
+
         </td>
 
         <td>0 <img ng-src="letters/letter_{{challenges.challenges[respons.length][0]}}.png"/></td>
@@ -47,13 +48,24 @@
         <td>8<img ng-src="letters/letter_{{challenges.challenges[respons.length][8]}}.png"/></td>
     </tr>
     <tr>
+        <td colspan="4">
+            <span ng-repeat="i in range(respons.length) track by $index">
+                <figure  ng-class="{circlered: respons.charAt($index) != challenges.answer[$index], 
+                                    circleblue:respons.charAt($index) == challenges.answer[$index]}"></figure>
+            </span>
+        </td>
         <td>4<img ng-src="letters/letter_{{challenges.challenges[respons.length][4]}}.png"/></td>
         <td>9<img ng-src="letters/letter_{{challenges.challenges[respons.length][9]}}.png"/></td>
     </tr>
 
     </table>
 
-    <p> {{challenges.answer[respons.length]}}</p>
+
+    <hr class="divider"> 
+
+    <p> 
+
+    {{challenges.answer[respons.length]}}</p>
 
     <button type="submit" class="btn btn-danger" ng-show="respons.length>=10" >Submit</button>
 </div>

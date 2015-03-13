@@ -26,7 +26,8 @@ var Data = mongoose.model('data',{
     age : Number,
     occupation: String,
     technique: String,
-    calcTimes: Array
+    calcTimes: Array,
+    results: Array
 });
 
 
@@ -44,7 +45,8 @@ app.post("/api/data", function(req, res){
         age: req.body.age,
         occupation: req.body.occupation,
         technique: req.body.technique,
-        calcTimes: req.body.data.calcTimes
+        calcTimes: req.body.data.calcTimes,
+        results: req.body.data.results
     }, function(err, test){
         if(err){
             res.send(err);
