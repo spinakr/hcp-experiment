@@ -15,6 +15,8 @@ angular.module('hcp-experiment.controllers', [])
 .controller('FormController', function($rootScope, $scope, $http){
     $rootScope.formData = {};
 
+    //embed demosntration video
+    (function(){var x=document.createElement('script'), s=document.getElementsByTagName('script')[0];x.async=true;x.src='http://static.wideo.co/js/embed/wideoembed.js';s.parentNode.insertBefore(x,s)})();
 
     $scope.createData = function() {
     $http.post('/api/data', $scope.formData)

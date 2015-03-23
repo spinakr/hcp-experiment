@@ -1,14 +1,6 @@
+<p>Here will de demonstration/introctions</p>
 <div class="form-group row">
-<!--Change wideo width and height here-->
 
-<h2>Demonstration</h2>
-<div id="wideo-embed-block" 
-	wideo-width="700" 
-	wideo-height="410"
-	wideo-id="8813151426842487194"
-	autoplay="false">
-</div>
-		      
 
 <div class="col-xs-6 col-xs-offset-3">
     <a ui-sref="form.profile" class="btn btn-block btn-info">
