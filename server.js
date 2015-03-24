@@ -23,12 +23,51 @@ app.use(methodOverride());
 
 
 var Data = mongoose.model('data',{
+    hcpId: String,
     age : Number,
     occupation: String,
     technique: String,
     calcTimes: Array,
     results: Array
+
 });
+
+//returns avrage calc time grouped by user 
+app.get("/api/useravg", function(req,res){
+    Data.aggregate([
+        {"$unwind": "$calcTimes"},
+        {
+        $group : {
+            _id: "$hcpId",
+            "avgCalc": {$avg: "$calcTimes"},
+            total : {$sum : 1 }}
+    }], function(err, data){
+        if(err){
+            res.send(err)
+        }
+        res.json(data);
+    });
+});
+
+//returns all the calculation times and corresponding results.
+app.get("/api/userdata", function(req,res){
+    Data.aggregate([
+        {"$unwind": "$calcTimes"},
+        {"$unwind": "$results"},
+        {
+        $group : {
+            _id: "all",
+            "calcTimes": {$push: "$calcTimes"},
+            "results": {$push: "$results"},
+            total : {$sum : 1 }}
+    }], function(err, data){
+        if(err){
+            res.send(err)
+        }
+        res.json(data);
+    });
+});
+
 
 
 app.get("/api/data", function(req, res){
@@ -37,11 +76,12 @@ app.get("/api/data", function(req, res){
             res.send(err)
         }
         res.json(data);
-    })
+    });
 })
 
 app.post("/api/data", function(req, res){
     Data.create({
+        hcpId: req.body.hcp_id,
         age: req.body.age,
         occupation: req.body.occupation,
         technique: req.body.technique,

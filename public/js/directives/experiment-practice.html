@@ -1,4 +1,4 @@
-<div class="experiment">
+<div class="experiment-practice">
 
     <table align="center">
         <tr >
@@ -24,7 +24,7 @@
         <td colspan="4" rowspan="4">
             <div id="password-field" >
                 <div class="form-group">
-                    <input type="text" class="form-control" ng-change="newChar()"  ng-model="respons" maxlength="{{challenges.challenges.length}}" ng-keydown="preventBackspace($event)">
+                    <input type="text" class="form-control" onkeypress="return event.keyCode!=13"  ng-model="respons" maxlength="{{challenges.challenges.length}}" >
                     <!--    <input type="submit" class="hidden-submit" value="Submit"  /> -->
                 </div>
             </div>
@@ -49,7 +49,7 @@
     </tr>
     <tr>
         <td colspan="4">
-            <span ng-show="respons.length>=10" ng-repeat="i in range(respons.length) track by $index">
+            <span ng-repeat="i in range(respons.length) track by $index">
                 <figure  ng-class="{circlered: respons.charAt($index) != challenges.answer[$index], 
                                     circleblue:respons.charAt($index) == challenges.answer[$index]}"></figure>
             </span>
@@ -67,5 +67,4 @@
 
     {{challenges.answer[respons.length]}}</p>
 
-    <button type="submit" class="btn btn-danger" ng-show="respons.length>=10" >Submit</button>
 </div>

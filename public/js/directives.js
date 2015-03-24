@@ -27,3 +27,13 @@ app.directive('experiment', function(){
         controller: 'ExperimentController'
     };
 });
+
+
+app.directive('experimentprac', function(){
+    return{
+        restrict: 'A',
+        replace: true,
+        templateUrl: '/js/directives/experiment-practice.html',
+        controller: 'ExperimentController'
+    };
+});

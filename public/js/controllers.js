@@ -1,9 +1,10 @@
 angular.module('hcp-experiment.controllers', [])
-.controller('MainController', function($scope, $cookies,$http){
+.controller('MainController', function($scope, $cookies, $http){
     
-    $http.get("api/data")
+    $http.get("api/useravg")
     .success(function(data){
         $scope.data = data;
+
         console.log("Fetched data: %o", data);
     })
     .error(function(data){
@@ -12,11 +13,24 @@ angular.module('hcp-experiment.controllers', [])
 
 
 })
-.controller('FormController', function($rootScope, $scope, $http){
+.controller('FormController', function($cookies, $rootScope, $scope, $http){
     $rootScope.formData = {};
 
     //embed demosntration video
     (function(){var x=document.createElement('script'), s=document.getElementsByTagName('script')[0];x.async=true;x.src='http://static.wideo.co/js/embed/wideoembed.js';s.parentNode.insertBefore(x,s)})();
+
+    $rootScope.formData.data = {};
+    $rootScope.formData.data.calcTimes = [];
+    $rootScope.formData.data.results = [];
+    $rootScope.formData.hcp_id = $cookies.get("hcp-id");
+
+    if(!$rootScope.formData.hcp_id){
+        var id = Math.floor((1 + Math.random()) * 0x10000).toString(16) + Math.floor((1 + Math.random()) * 0x10000).toString(16);
+        var now = new Date();
+        $cookies.put("hcp-id", id, {expires: new Date(now.getFullYear(), now.getMonth()+6, now.getDate())})
+        $rootScope.formData.hcp_id = id;
+    }
+
 
     $scope.createData = function() {
     $http.post('/api/data', $scope.formData)
@@ -30,9 +44,6 @@ angular.module('hcp-experiment.controllers', [])
         });
     };
 
-
-
-
     $scope.processForm = function (){
         alert('processed!');
     }
@@ -40,14 +51,10 @@ angular.module('hcp-experiment.controllers', [])
 .controller('ExperimentController', function($rootScope, $scope){
     $scope.respons = '';
     $scope.challenges = [];
-    $rootScope.formData.data = {};
-    $rootScope.formData.data.calcTimes = [];
-    $rootScope.formData.data.results = [];
 
     $scope.letters = "abcdefghijklmnopqrstuvwxyz";
 
 
-    console.log("Challenges: %o", $scope.challenges);
 
     $scope.timing = +new Date(); 
     $scope.start = function(){
@@ -63,10 +70,6 @@ angular.module('hcp-experiment.controllers', [])
             $rootScope.formData.data.results.push(1);
         }else{
             $rootScope.formData.data.results.push(0);
-        }
-
-        if($rootScope.formData.data.calcTimes.length == $scope.challenges.challenges.length){
-
         }
     }
 
