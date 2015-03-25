@@ -1,4 +1,4 @@
-var PORT = 8081;
+var PORT = 8080;
 var express  = require('express');
 var app      = express();                       
 var mongoose = require('mongoose');            
@@ -6,7 +6,7 @@ var morgan = require('morgan');
 var bodyParser = require('body-parser');    
 var methodOverride = require('method-override'); 
 
-mongoose.connect('mongodb://172.17.0.56:27017/hcp-experiment', function(err){
+mongoose.connect('mongodb://localhost/hcp-experiment', function(err){
     if(err){
         console.log('connection error', err);
     } else {
