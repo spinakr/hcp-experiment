@@ -1,4 +1,4 @@
-var PORT = process.ENV.PORT || 8080;
+var PORT = 8081;
 var express  = require('express');
 var app      = express();                       
 var mongoose = require('mongoose');            
@@ -108,4 +108,3 @@ app.get('*', function(req, res){
 
 // listen (start app with node server.js) ======================================
 app.listen(PORT);
-console.log("App listening on port 8080");
