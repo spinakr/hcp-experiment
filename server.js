@@ -6,7 +6,7 @@ var morgan = require('morgan');
 var bodyParser = require('body-parser');    
 var methodOverride = require('method-override'); 
 
-mongoose.connect('mongodb://localhost:27017/test', function(err){
+mongoose.connect('mongodb://172.17.0.56:27017/hcp-experiment', function(err){
     if(err){
         console.log('connection error', err);
     } else {
