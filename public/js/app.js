@@ -2,7 +2,8 @@ var app = angular.module('hcp-experiment', [
         'hcp-experiment.controllers',
         'ngAnimate',
         'ngCookies',
-        'ui.router'
+        'ui.router',
+        'ngDialog'
         ]);
 
 app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider){

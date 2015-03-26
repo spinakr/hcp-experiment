@@ -25,6 +25,20 @@ pre{
     background: radial-gradient(circle at 6px 6px, #5cabff, #000);
 }
 
+
+select {
+    width: 240px;
+    height: 30px;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    color: black;
+
+}
+
+.age{
+    width: 90px;
+}
+
 .circlered {
     display: inline-block;
     background: black;
@@ -38,7 +52,9 @@ pre{
 #form-container{
 	background:#2f2f2f; 
 	margin-bottom:20px;
-	border-radius:5px; }
+	border-radius:5px; 
+}
+
 #form-container .page-header{ 
     background:#151515; 
     margin:0; 

@@ -1,6 +1,7 @@
 <div class="form-group">
 
-    <label for="occupation">Mapping Technique</label>
+    <!--
+    <label for="technique">Mapping Technique</label>
     <div class="radio">
         <label>
             <input type="radio" ng-model="formData.technique" value="cheatsheet" checked>
@@ -12,17 +13,21 @@
             <input type="radio" ng-model="formData.technique" value="memorization">
             Memorization
         </label>
-    </div>
+    </div> -->
 </div>
 
 <div class="form-group">
-    <label for="occupation">Occupation</label>
-    <input type="text" class="form-control" name="occupation" ng-model="formData.occupation">
+    <label for="occupation">Occupation</label><br>
+
+
+    <select ng-model="formData.occupation" ng-options="o as o for o in occupations" ></select>
+
+
 </div>
 
 <div class="form-group">
     <label for="age">Age</label>
-    <input type="text" class="form-control" name="age" ng-model="formData.age">
+    <input type="number" class="form-control age" name="age" ng-model="formData.age">
 </div>
 <div class="form-group row">
 <div class="col-xs-6 col-xs-offset-3">

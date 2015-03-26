@@ -16,6 +16,8 @@ angular.module('hcp-experiment.controllers', [])
 .controller('FormController', function($cookies, $rootScope, $scope, $http){
     $rootScope.formData = {};
 
+    $scope.occupations = ['Technology student', 'Non-technical student', 'Other'];
+
     //embed demosntration video
     (function(){var x=document.createElement('script'), s=document.getElementsByTagName('script')[0];x.async=true;x.src='http://static.wideo.co/js/embed/wideoembed.js';s.parentNode.insertBefore(x,s)})();
 
@@ -49,6 +51,9 @@ angular.module('hcp-experiment.controllers', [])
     }
 })
 .controller('ExperimentController', function($rootScope, $scope){
+
+
+
     $scope.respons = '';
     $scope.challenges = [];
 
