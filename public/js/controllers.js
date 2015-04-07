@@ -112,15 +112,20 @@ angular.module('hcp-experiment.controllers', [])
 
     var letters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
     $scope.mappings = [];
-    for(i=0; i<10; i++){
-        var rand = Math.floor(Math.random()*letters.length);
-        $scope.mappings.push({
-            letter: letters[rand],
-            digit: Math.floor(Math.random()*10)+1
-        });
-        letters.remove(rand);
-    }
 
+    for(i=0; i<9; i++){
+        $scope.mappings.push({
+            letter: letters[i],
+            digit: i+1
+        });
+
+//        var rand = Math.floor(Math.random()*letters.length);
+//        $scope.mappings.push({
+//            letter: letters[rand],
+//            digit: Math.floor(Math.random()*10)+1
+//        });
+//        letters.remove(rand);
+    }
 
     $scope.mapping = function(x){
         for(i=0; i < $scope.mappings.length; i++){
@@ -144,7 +149,7 @@ angular.module('hcp-experiment.controllers', [])
             var ch = [];
 
             for (i=0; i<13; i++){
-                ch.push($scope.mappings[Math.floor(Math.random()*10)].letter);
+                ch.push($scope.mappings[Math.floor(Math.random()*9)].letter);
             }
             respons.challenges.push(ch);
             respons.answer.push($scope.humanFunc(ch));
