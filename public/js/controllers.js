@@ -135,8 +135,8 @@ angular.module('hcp-experiment.controllers', [])
         }
     }
     $scope.humanFunc = function(ch){
-        var j = ($scope.mapping(ch[9]) + $scope.mapping(ch[10]))%10;
-        return ($scope.mapping(ch[j]) + $scope.mapping(ch[11]) + $scope.mapping(ch[12]))%10;
+        var j = ($scope.mapping(ch[10]) + $scope.mapping(ch[11]))%10;
+        return ($scope.mapping(ch[j]) + $scope.mapping(ch[12]) + $scope.mapping(ch[13]))%10;
     }
 
     $scope.randomChallenge =function(length){
@@ -148,7 +148,7 @@ angular.module('hcp-experiment.controllers', [])
         for(j=0; j<length; j++){
             var ch = [];
 
-            for (i=0; i<13; i++){
+            for (i=0; i<14; i++){
                 ch.push($scope.mappings[Math.floor(Math.random()*9)].letter);
             }
             respons.challenges.push(ch);
