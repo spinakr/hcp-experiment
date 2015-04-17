@@ -40,6 +40,8 @@ app.get("/api/useravg", function(req,res){
         {
         $group : {
             _id: "$hcpId",
+            "age": {$first: "$age" },
+            "occupation": {$first: "$occupation"},
             "avgCalc": {$avg: "$calcTimes"},
             total : {$sum : 1 }}
     }], function(err, data){
@@ -48,6 +50,7 @@ app.get("/api/useravg", function(req,res){
         }
         res.json(data);
     });
+
 });
 
 //returns all the calculation times and corresponding results.
